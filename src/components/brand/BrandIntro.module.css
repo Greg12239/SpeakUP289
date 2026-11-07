@@ -1,0 +1,76 @@
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  place-items: center;
+  overflow: clip;
+  isolation: isolate;
+  /* The closed purple is sampled from the original official master artwork. */
+  background: #2b164c;
+  contain: layout paint;
+  clip-path: inset(0 0 0 0);
+  touch-action: none;
+}
+
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  .overlay:not([hidden]) {
+    display: grid;
+    /* CSS-only escape if hydration never runs. The normal sequence is all GSAP. */
+    animation: escape 0s 6s forwards;
+  }
+}
+
+.overlay[hidden] { display: none; }
+.overlay[data-state="ready"] { animation: none; }
+
+.atmosphere {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 48% 48%, rgb(78 26 166 / 18%), transparent 50%),
+    linear-gradient(120deg, transparent 32%, rgb(244 239 250 / 1.5%) 49%, transparent 66%);
+}
+
+.stage {
+  position: relative;
+  width: min(44rem, 64vw, 150svh);
+  aspect-ratio: 1250 / 370;
+  /* Optical center of the exact artwork, without moving individual glyphs. */
+  margin-top: -1.5svh;
+}
+
+.artwork {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.signalFalloff {
+  position: absolute;
+  left: 47.36%;
+  top: 58.24%;
+  width: 23%;
+  height: 78%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse, rgb(224 0 60 / 26%), rgb(224 0 60 / 7%) 30%, transparent 68%);
+}
+
+.signature { transform: translateY(9px); }
+.highlight,
+.gloss,
+.keyFalloff,
+.redReflection { opacity: 0; }
+
+@media (max-width: 40rem) {
+  .stage { width: min(82vw, 150svh); }
+}
+
+@keyframes escape {
+  to { visibility: hidden; pointer-events: none; }
+}

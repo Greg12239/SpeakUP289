@@ -1,0 +1,34 @@
+{
+  "coordinateSystem": [
+    1250,
+    370
+  ],
+  "sources": {
+    "primary": "speakup-primary.png",
+    "light": "speakup-wordmark-light.png"
+  },
+  "sha256": {
+    "primary": "9073c95f87fb3c7750cbca9c125df7dca4c7750963fa574d3c5d3db316a817ca",
+    "light": "edebc9b5a1a5e41e01c5565742e4345f92592b9cb581d0753cfe1a86102c9406"
+  },
+  "layers": {
+    "wordmark": {
+      "left": 8,
+      "top": 9,
+      "width": 1234,
+      "height": 255
+    },
+    "arrow": {
+      "left": 542,
+      "top": 166,
+      "width": 100,
+      "height": 99
+    },
+    "signature": {
+      "left": 481,
+      "top": 313,
+      "width": 282,
+      "height": 48
+    }
+  }
+}
